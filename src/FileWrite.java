@@ -89,7 +89,6 @@ public interface FileWrite {
 	            System.out.print(array2D[x][y]);
 	        }
 	        System.out.println();
-	        System.out.println();
 	    }
 	}
 
