@@ -58,7 +58,7 @@ public interface FileWrite {
 	    }
 	    String returnValue = contentBuilder.toString();
 	    returnValue = returnValue.substring(0, returnValue.length()-1);								//Remove last line - Should be fixed to first detect if last line is newline char
-	    System.out.println("readFile has returned: " + '"' + contentBuilder.toString() + '"');
+	    System.out.println("readFile has returned: " + '"' + returnValue + '"');
 	    
 	    return contentBuilder.toString();
 	}
