@@ -10,6 +10,9 @@ public class Project implements FileWrite {
 	private	String						projectName;
 	
 	
+	/*
+	 * Constructor that shouldn't typically be used (for now)
+	 */
 	public Project (HashMap<Integer, Layer>	layers,
 							 String		projectName) {
 		//this.setLayers();
@@ -69,7 +72,6 @@ public class Project implements FileWrite {
 		File layerFolder = new File(projectFolder.getPath() + "\\Layers");
 		String[] layerFiles = layerFolder.list();
 		int layerCount = 0;
-		
 		int layerLength = 0;
 		int layerWidth = 0;
 		
