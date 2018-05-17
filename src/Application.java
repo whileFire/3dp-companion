@@ -12,6 +12,9 @@ public class Application implements FileWrite{
 	}
 	
 	
+	/*
+	 * Creates the Projects folder and creates a Default project inside with all requisite files
+	 */
 	public void initializeFolderStructure() {
 		String defaultDirectory = "Projects\\Default\\";
 		File directory = new File(defaultDirectory + "Layers\\");
@@ -25,18 +28,23 @@ public class Application implements FileWrite{
 	
 	}
 	
+	
+	/*
+	 * Run at start to find all current projects and import into listbox
+	 * @return Hashmap of all projects
+	 */
 	public HashMap<Integer, Project> importProjects() {
 		String[] projectFolders;
 		int projectCount = 0;
 		HashMap<Integer, Project>	projects = new HashMap<>();
-		File projectsDirectory = new File("Projects\\");
-		projectFolders = projectsDirectory.list();
-		//System.out.println(projectFolders.length);
-			for (int i=0;i<projectFolders.length;i++) {
-				File fileToTest = new File("Projects\\" + projectFolders[i] + "\\");
+		File projectsDirectory = new File("Projects\\");									//Grabs the Projects folder
+		projectFolders = projectsDirectory.list();											//makes a String array of all of the subfolders in projects folder
+
+			for (int i=0;i<projectFolders.length;i++) {										//Create File object out of each Projects subfolder to check if it's
+				File fileToTest = new File("Projects\\" + projectFolders[i] + "\\");		//actually a Project
 				if(verifyFolderIsProject(fileToTest)) {
 					projectCount++;
-					projects.put(projectCount, makeProjectObjectFromFolder(fileToTest));
+					projects.put(projectCount, makeProjectObjectFromFolder(fileToTest));	//If it is a project, add it to projects HashMap to be returned
 				}
 			}
 		return projects;
@@ -44,13 +52,10 @@ public class Application implements FileWrite{
 	}
 	
 	
-	public Project makeProjectObjectFromFolder(File inputFolder) {
-		Project projectFromFolder = new Project(inputFolder);
-			//Now make a project object out of that folder. o.o jeeze this is going well
-		return projectFromFolder;
-	}
-	
-	
+	/*
+	 * Verifies whether a subfolder in Projects folder is a real project
+	 * @return true
+	 */
 	public static boolean verifyFolderIsProject(File inputFile) {
 		boolean hasProjectInfo	=	false;
 		boolean hasLayers		=	false;
@@ -66,17 +71,19 @@ public class Application implements FileWrite{
 	}
 	
 	
-	public void readFolderStructure()	{
-
-		File rootDirectory = new File(".");
-		File projectsDirectory = new File("Projects\\");
-		//File projectsDirectory = new File("Projects\\Default\\projectInfo.txt");
-
-		//printFileDetails(rootDirectory);
-		//printFileDetails(projectsDirectory);
-		
+	/*
+	 * Instantiate Projects
+	 * @return	A project!
+	 */
+	public Project makeProjectObjectFromFolder(File inputFolder) {
+		Project projectFromFolder = new Project(inputFolder);
+		return projectFromFolder;
 	}
 	
+	
+	/*
+	 * For testing how File properties display 
+	 */
 	public void printFileDetails(File fileToRead) {
 		System.out.println("====printFileDetails start====" + fileToRead.getName());
 		System.out.println("Is a directory: " + fileToRead.isDirectory());
@@ -94,11 +101,6 @@ public class Application implements FileWrite{
 		System.out.println("getParent: " + fileToRead.getParent());
 		System.out.println("getClass: " + fileToRead.getClass());
 		System.out.println("====printFileDetails end====");
-	}
-	
-	public void readTest() {
-		String imageFile = readFile("image.png");
-		System.out.println(imageFile);
 	}
 	
 	

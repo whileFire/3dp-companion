@@ -53,11 +53,17 @@ public class ApplicationWindow extends JFrame {
 		
 		
 		
-		//Projects
+		//End Test/On-Run
+		
+		// =======
+		
+		//Projects Import
 		Application a1 = new Application();
 		a1.initializeFolderStructure();
 		HashMap<Integer, Project> projects = a1.importProjects();
 		
+		
+		//End Projects Import
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
