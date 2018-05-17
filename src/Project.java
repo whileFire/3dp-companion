@@ -10,9 +10,7 @@ public class Project implements FileWrite {
 	private	String						projectName;
 	
 	
-	/*
-	 * Constructor that shouldn't typically be used (for now)
-	 */
+
 	public Project (HashMap<Integer, Layer>	layers,
 							 String		projectName) {
 		//this.setLayers();
