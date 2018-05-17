@@ -18,9 +18,7 @@ public class Project implements FileWrite {
 		//this.setLayers();
 		this.setProjectName(projectName);
 	}
-	
-	/**This is Sean's addition for testing**/
-	
+		
 	public Project(File inputFolder) {
 		
 		File projectData = new File(inputFolder.toString() + "\\projectInfo.txt");
