@@ -16,6 +16,7 @@ public class Project implements FileWrite {
 		this.setProjectName(projectName);
 	}
 	
+	/**This is Sean's addition for testing**/
 	
 	public Project(File inputFolder) {
 		
