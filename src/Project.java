@@ -6,12 +6,11 @@ import javax.swing.ImageIcon;
 public class Project implements FileWrite {
 	
 	private HashMap<Integer, Layer>		layers;
-	private	ImageIcon		projectPicture;
+	private	ImageIcon					projectPicture;
+	private	String						projectName;
 	
-	private	String		projectName;
 	
-	
-	public Project(HashMap<Integer, Layer>	layers,
+	public Project (HashMap<Integer, Layer>	layers,
 							 String		projectName) {
 		//this.setLayers();
 		this.setProjectName(projectName);
@@ -19,6 +18,7 @@ public class Project implements FileWrite {
 	
 	
 	public Project(File inputFolder) {
+		
 		File projectData = new File(inputFolder.toString() + "\\projectInfo.txt");
 		String projectDataString = projectData.toString();
 		
@@ -34,7 +34,6 @@ public class Project implements FileWrite {
 		System.out.println("Length: " + layers.get(1).getLength());
 		System.out.println("Height: " + layers.size());
 		System.out.println("Layers: " + this.getLayers());
-
 		
 	}
 	
