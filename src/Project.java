@@ -23,7 +23,6 @@ public class Project implements FileWrite {
 		String projectDataString = projectData.toString();
 		
 		projectDataString = readFile(projectData.getPath());
-		projectDataString = projectDataString.substring(0, projectDataString.length()-1);
 		
 		this.setProjectName(projectDataString);
 		this.setLayers(inputFolder);
