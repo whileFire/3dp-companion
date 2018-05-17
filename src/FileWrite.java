@@ -65,7 +65,7 @@ public interface FileWrite {
 	
 	default public void readBMP(String BMPFileName) throws IOException {
 		System.out.println(getClass().getResource(BMPFileName));
-		File imageFile = new File("C:\\Users\\Ashley\\Google Drive\\PC\\eclipse\\Printertle_0.0.1\\Projects\\Default\\image.bmp");
+		File imageFile = new File("\\Projects\\Default\\image.bmp");
 	    BufferedImage image = ImageIO.read(imageFile);// ImageIO.read(getClass().getResource(BMPFileName));
 
 	    int[][] array2D = new int[image.getHeight()][image.getWidth()]; //*
